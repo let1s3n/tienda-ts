@@ -1,30 +1,26 @@
-import React, { MouseEventHandler } from 'react'
+import React from 'react'
 import { IoIosClose } from "react-icons/io";
 import { TiShoppingCart } from "react-icons/ti";
 import { Dropdown, Button } from 'react-materialize'
-import { asd } from '../Home/Home'
+import { pList } from '../Home/Home'
 
 type Props = {
-  handleRemove: any,
-  handleVaciar: any,
-  productsOnCart: asd[]
+  handleRemove: (a: pList) => void;
+  handleVaciar: () => void;
+  productsOnCart: pList[]
 
 }
 
 const Cart = ({ handleRemove, handleVaciar, productsOnCart }: Props) => {
 
-  const handleClickRemover = (product: {}) => {
-    /* const { handleRemove } = props; */
+  const handleClickRemover = (product: pList) => {
     handleRemove(product);
   }
 
   const vaciar = () => {
-    /* const { handleVaciar } = props; */
     handleVaciar();
   }
 
-
-  /* const { productsOnCart } = props; */
   let total = 0;
 
   return (

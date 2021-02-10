@@ -3,21 +3,25 @@ import { Navbar } from 'react-materialize';
 import Cart from '../Cart/Cart'
 import ProductList from '../Products/ProductList'
 
-export interface asd {
+export interface pList {
   id: number;
+  baseimageurl: string;
+  date: string;
+  height: string;
+  width: string;
 }
 
 const Home: FC = () => {
 
-  
 
-  const [itemList, setItemList] = useState<asd[]>([]);
 
-  const handleAddition = (item: asd) => {
+  const [itemList, setItemList] = useState<pList[]>([]);
+
+  const handleAddition = (item: pList): void => {
     setItemList([...itemList, item]);
   }
 
-  const handleRemove = (item: asd) => {
+  const handleRemove = (item: pList): void => {
     const newItemList = itemList.filter(product => product.id !== item.id);
     setItemList(newItemList);
   }

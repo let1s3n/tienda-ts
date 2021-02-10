@@ -1,13 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react'
 // @ts-ignore
 import { Col, Modal, Button, Card, CardTitle } from 'react-materialize'
+import { typeProps } from './ProductList'
+import {pList} from '../Home/Home'
+interface props {
+  index: number;
+  product: pList;
+  data: typeProps;
+}
+const Product = ({index,product,data}: props) => {
 
-const Product = (props:any) => {
-  
   const [flag, setFlag] = useState(true);
-  const { productsOnCart } = props.data;
-  const prevProductsOnCart:{}[] = usePrevious(productsOnCart);
-  const { product,data } = props;
+  const { productsOnCart } = data;
+  const prevProductsOnCart = usePrevious(productsOnCart);
+  
 
   useEffect(() => {
     if (productsOnCart.length == 0) {
@@ -72,10 +78,10 @@ const Product = (props:any) => {
 export default Product;
 
 
-function usePrevious(value:{}[]):any {
+function usePrevious(value:any): any {
   // The ref object is a generic container whose current property is mutable ...
   // ... and can hold any value, similar to an instance property on a class
-  const ref:any = useRef();
+  const ref: any = useRef();
 
   // Store current value in ref
   useEffect(() => {
