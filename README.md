@@ -15,4 +15,4 @@ Ejecutar server de desarrollo:
 npm start
 ```
 ## Demo
-[Demo](https://tienda-simple2021.web.app/)
+[Demo](https://tiendats-2021.web.app/)
