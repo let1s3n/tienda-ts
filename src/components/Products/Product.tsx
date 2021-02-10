@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react'
+// @ts-ignore
 import { Col, Modal, Button, Card, CardTitle } from 'react-materialize'
 
-const Product = (props) => {
+const Product = (props:any) => {
   
   const [flag, setFlag] = useState(true);
   const { productsOnCart } = props.data;
-  const prevProductsOnCart = usePrevious(productsOnCart);
+  const prevProductsOnCart:{}[] = usePrevious(productsOnCart);
   const { product,data } = props;
 
   useEffect(() => {
@@ -30,9 +31,9 @@ const Product = (props) => {
   const trigger = <Button data-target={product.id} flat waves="effect" className="modal-trigger" >Vista Previa</Button>
   let boton;
   if (flag) {
-    boton = <Button waves="effect" waves="light" className="boton-agregar" onClick={handleClickAgregar}>Agregar</Button>;
+    boton = <Button waves="effect light" className="boton-agregar" onClick={handleClickAgregar}>Agregar</Button>;
   } else {
-    boton = <Button waves="effect" waves="light" className="boton-eliminar" onClick={handleClickRemover}>Eliminar</Button>;
+    boton = <Button waves="effect light" className="boton-eliminar" onClick={handleClickRemover}>Eliminar</Button>;
   }
 
   return (
@@ -47,7 +48,7 @@ const Product = (props) => {
 
       </Card>
       <Modal
-        actions={<Button flat modal="close" waves="effect" waves="green">Cerrar</Button>}
+        actions={<Button flat modal="close" waves="effect green">Cerrar</Button>}
         id={product.id}
       >
         <Card
@@ -71,10 +72,10 @@ const Product = (props) => {
 export default Product;
 
 
-function usePrevious(value) {
+function usePrevious(value:{}[]):any {
   // The ref object is a generic container whose current property is mutable ...
   // ... and can hold any value, similar to an instance property on a class
-  const ref = useRef();
+  const ref:any = useRef();
 
   // Store current value in ref
   useEffect(() => {

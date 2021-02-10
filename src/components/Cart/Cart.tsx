@@ -1,22 +1,30 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import { IoIosClose } from "react-icons/io";
 import { TiShoppingCart } from "react-icons/ti";
 import { Dropdown, Button } from 'react-materialize'
+import { asd } from '../Home/Home'
 
-const Cart = (props) => {
+type Props = {
+  handleRemove: any,
+  handleVaciar: any,
+  productsOnCart: asd[]
 
-  const handleClickRemover = (product) => {
-    const { handleRemove } = props;
+}
+
+const Cart = ({ handleRemove, handleVaciar, productsOnCart }: Props) => {
+
+  const handleClickRemover = (product: {}) => {
+    /* const { handleRemove } = props; */
     handleRemove(product);
   }
 
-  const handleVaciar = () => {
-    const { handleVaciar } = props;
+  const vaciar = () => {
+    /* const { handleVaciar } = props; */
     handleVaciar();
   }
 
 
-  const { productsOnCart } = props;
+  /* const { productsOnCart } = props; */
   let total = 0;
 
   return (
@@ -28,7 +36,7 @@ const Cart = (props) => {
     }} */
     >
       <div>
-        <Button flat waves="effect" waves="teal" className="boton-vaciar" onClick={() => handleVaciar()}>Vaciar</Button>
+        <Button flat waves="effect teal" className="boton-vaciar" onClick={() => vaciar()}>Vaciar</Button>
         <h5>Carrito</h5>
 
         <ul>
